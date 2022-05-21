@@ -82,11 +82,8 @@ This challenge adds 2 ether to your score.
 ### Challenge 5: BecomeMaster
 
 ```
-This is a padlock to be opened... If you can.
-Be careful, becuse if you're too hard with it, the padlock breaks!
-
-The password to open the first padlock is `activatexwormholemiami`,
-you will have to figure out how to open the remaining ones.
+This is a vault, where only the master can take out all the funds!
+If there was only a way to become the master yourself to escape with the funds...
 
 This challenge adds 2 ether to your score.
 ```
@@ -110,6 +107,8 @@ Some criminal you're following has locked their stolen fortune in the form of a 
 
 It is your mission to infiltrate the bank's governance, take over it and steal the criminal's money.
 That'll show them! Right?
+
+This challenge adds 5 ether to your score.
 ```
 
 >! In case you got stuck, check out [this link]() and [this link](https://hackernoon.com/hack-solidity-reentrancy-attack).
