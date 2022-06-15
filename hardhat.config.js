@@ -28,25 +28,7 @@ module.exports = {
   solidity: {
     compilers: [
       {
-        version: '0.8.4',
-        settings: {
-          optimizer: {
-            enabled: true,
-            runs: 200,
-          },
-        },
-      },
-      {
         version: '0.8.11',
-        settings: {
-          optimizer: {
-            enabled: true,
-            runs: 200,
-          },
-        },
-      },
-      {
-        version: '0.8.0',
         settings: {
           optimizer: {
             enabled: true,
@@ -66,14 +48,7 @@ module.exports = {
     ],
   },
   networks: {
-    mumbai: {
-      url: `https://polygon-mumbai.g.alchemy.com/v2/${ALCHEMY_API_KEY_MUMBAI}`,
-      accounts: [TEAM_0],
-    },
     hardhat: {
-      forking: {
-        url: `https://polygon-mumbai.g.alchemy.com/v2/${ALCHEMY_API_KEY_MUMBAI}`
-      }
     },
   },
 };

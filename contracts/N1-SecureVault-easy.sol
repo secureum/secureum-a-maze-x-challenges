@@ -1,5 +1,5 @@
 //SPDX-License-Identifier: MIT
-pragma solidity 0.8.0;
+pragma solidity 0.8.11;
 
 //import "hardhat/console.sol";
 
@@ -37,13 +37,6 @@ contract N1SecureVault {
 
         uint256 _balance = address(this).balance;
 
-        /*console.log("------ recoverFunds secret check -------");
-        console.log(
-            "password to match ",
-            uint256(keccak256(abi.encodePacked(_secret, _balance)))
-        );
-        console.log("_password         ", _password);*/
-
         if (
             _password == uint256(keccak256(abi.encodePacked(_secret, _balance)))
         ) {
@@ -65,7 +58,4 @@ contract N1SecureVault {
             31337;
     }
 
-    fallback() external {}
-
-    receive() external payable {}
 }
