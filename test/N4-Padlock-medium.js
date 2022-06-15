@@ -1,17 +1,19 @@
-const { expect } = require("chai");
-
-const CHALLENGES = require("../challenge-addresses.js")
-const challengeAddress = CHALLENGES.N4Padlock;
-
+const { expect } = require('chai');
 
 // run the test
-// npx hardhat test ./test/N4-Padlock-medium.js --network mumbai
-describe("CTF #4 Padlock", function () {
-    it("Should recover all funds", async function () {
-        const challengeInstance = await ethers.getContractAt(
-            "N4Padlock",
-            challengeAddress
-        );
-        expect(await ethers.provider.getBalance(challengeInstance.address)).to.equal("0");
-    });
+// npx hardhat test ./test/N4-Padlock-medium.js
+describe('CTF #4 Padlock', function () {
+  before(async function () {
+    [deployer] = await ethers.getSigners();
+
+    const Challenge = await ethers.getContractFactory('N4Padlock');
+    challengeInstance = await Challenge.deploy({ value: ethers.utils.parseEther('0.0001') });
+    await challengeInstance.deployed();
+  });
+
+  it('Should recover all funds', async function () {
+    // Your code goes here
+
+    expect(await ethers.provider.getBalance(challengeInstance.address)).to.equal('0');
+  });
 });
