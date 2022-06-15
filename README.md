@@ -11,7 +11,25 @@ Within this repository you will find:
 
 The smart contracts to be hacked are located within the `contracts` directy.
 
-Each challenge consists of a single `solidity` soruce file.
+Each challenge consists of a single `solidity` source file.
+
+You can run each challenge using the hardhat tests;
+```bash
+## Challenge 1
+npx hardhat run test/N1-SecureVault-easy.js
+
+## Challenge 2
+npx hardhat run test/N2-Weirdo-easy.js
+
+## Challenge 3
+npx hardhat run test/N3-TimeLock-easy.js
+
+## Challenge 4
+npx hardhat run test/N4-Padlock-medium.js
+
+## Challenge 5
+npx hardhat run test/N5-BecomeMaster-medium.js
+```
 
 Challenges are grouped in 3 different levels, and each challange awards different quantities of points to your score.
 

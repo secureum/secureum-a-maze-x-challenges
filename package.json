@@ -1,5 +1,13 @@
 {
   "name": "hardhat-project",
+  "scripts": {
+    "test": "hardhat test test/*",
+    "lint:check": "solhint 'contracts/**/*.sol' && prettier --check 'contracts/**/*.sol'",
+    "lint:fix": "prettier --write 'contracts/**/*.sol' && prettier --write 'test/**/*.js' && solhint 'contracts/**/*.sol' "
+  },
+  "lint-staged": {
+    "*.sol": "solhint --fix 'contracts/**/*.sol'"
+  },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.5",
     "@nomiclabs/hardhat-waffle": "^2.0.3",
